@@ -1,5 +1,17 @@
 # @copilotkit/runtime-client-gql
 
+## 4.0.0
+
+### Major Changes
+
+- 8de66e8: update
+
+### Patch Changes
+
+- Updated dependencies [8de66e8]
+  - @freebeatfit/runtime@4.0.0
+  - @freebeatfit/shared@4.0.0
+
 ## 3.0.0
 
 ### Major Changes
