@@ -1,11 +1,18 @@
 {
-  "$schema": "https://unpkg.com/@changesets/config@3.0.4/schema.json",
+  "$schema": "https://unpkg.com/@changesets/config@3.0.0/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "access": "public",
-  "baseBranch": "origin/main",
-  "fixed": [["@copilotkit/*"]],
-  "ignore": ["*"],
+  "fixed": [
+    [
+      "@freebeatfit/*"
+    ]
+  ],
   "linked": [],
-  "updateInternalDependencies": "patch"
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": [],
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "onlyUpdatePeerDependentsWhenOutOfRange": true
+  }
 }

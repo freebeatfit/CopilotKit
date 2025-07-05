@@ -8,17 +8,17 @@
  *
  * ## Install Dependencies
  *
- * This component is part of the [@copilotkit/react-ui](https://npmjs.com/package/@copilotkit/react-ui) package.
+ * This component is part of the [@freebeatfit/react-ui](https://npmjs.com/package/@freebeatfit/react-ui) package.
  *
- * ```shell npm2yarn \"@copilotkit/react-ui"\
- * npm install @copilotkit/react-core @copilotkit/react-ui
+ * ```shell npm2yarn \"@freebeatfit/react-ui"\
+ * npm install @freebeatfit/react-core @freebeatfit/react-ui
  * ```
  *
  * ## Usage
  *
  * ```tsx
- * import { CopilotSidebar } from "@copilotkit/react-ui";
- * import "@copilotkit/react-ui/styles.css";
+ * import { CopilotSidebar } from "@freebeatfit/react-ui";
+ * import "@freebeatfit/react-ui/styles.css";
  *
  * <CopilotSidebar
  *   labels={{
@@ -35,7 +35,7 @@
  * By default, CopilotKit components do not have any styles. You can import CopilotKit's stylesheet at the root of your project:
  * ```tsx title="YourRootComponent.tsx"
  * ...
- * import "@copilotkit/react-ui/styles.css"; // [!code highlight]
+ * import "@freebeatfit/react-ui/styles.css"; // [!code highlight]
  *
  * export function YourRootComponent() {
  *   return (

@@ -2,7 +2,7 @@ import {
   CopilotRuntimeClient,
   CopilotRuntimeClientOptions,
   GraphQLError,
-} from "@copilotkit/runtime-client-gql";
+} from "@freebeatfit/runtime-client-gql";
 import { useToast } from "../components/toast/toast-provider";
 import { useMemo, useRef } from "react";
 import {
@@ -15,7 +15,7 @@ import {
   ERROR_CONFIG,
   CopilotTraceHandler,
   CopilotTraceEvent,
-} from "@copilotkit/shared";
+} from "@freebeatfit/shared";
 import { shouldShowDevConsole } from "../utils/dev-console";
 
 export interface CopilotRuntimeClientHookOptions extends CopilotRuntimeClientOptions {

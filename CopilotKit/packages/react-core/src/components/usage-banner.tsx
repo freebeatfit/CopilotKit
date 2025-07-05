@@ -1,4 +1,4 @@
-import { Severity, CopilotKitError, ERROR_NAMES, ErrorVisibility } from "@copilotkit/shared";
+import { Severity, CopilotKitError, ERROR_NAMES, ErrorVisibility } from "@freebeatfit/shared";
 
 interface UsageBannerProps {
   severity?: Severity;

@@ -1,4 +1,4 @@
-import { CopilotCloudConfig, FunctionCallHandler, CopilotTraceHandler } from "@copilotkit/shared";
+import { CopilotCloudConfig, FunctionCallHandler, CopilotTraceHandler } from "@freebeatfit/shared";
 import {
   ActionRenderProps,
   CatchAllActionRenderProps,
@@ -14,8 +14,8 @@ import {
   CopilotRuntimeClient,
   ExtensionsInput,
   ForwardedParametersInput,
-} from "@copilotkit/runtime-client-gql";
-import { Agent } from "@copilotkit/runtime-client-gql";
+} from "@freebeatfit/runtime-client-gql";
+import { Agent } from "@freebeatfit/runtime-client-gql";
 import {
   LangGraphInterruptAction,
   LangGraphInterruptActionSetter,

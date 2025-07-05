@@ -1,5 +1,38 @@
 # @copilotkit/runtime
 
+## 3.0.0
+
+### Major Changes
+
+- frist agent copilotkit
+
+### Patch Changes
+
+- Updated dependencies
+  - @freebeatfit/shared@3.0.0
+
+## 2.0.0
+
+### Major Changes
+
+- agent freebeat
+
+### Patch Changes
+
+- Updated dependencies
+  - @freebeatfit/shared@2.0.0
+
+## 2.0.0-next.15
+
+### Major Changes
+
+- freebeat agent copilotkit
+
+### Patch Changes
+
+- Updated dependencies
+  - @copilotkit/shared@2.0.0-next.15
+
 ## 1.9.2-next.14
 
 ### Patch Changes

@@ -1,5 +1,5 @@
 console.warn(
-  "Warning: '@copilotkit/sdk-js/langchain' is deprecated and will be removed in a future release. Please use '@copilotkit/sdk-js/langgraph' instead.",
+  "Warning: '@freebeatfit/sdk-js/langchain' is deprecated and will be removed in a future release. Please use '@freebeatfit/sdk-js/langgraph' instead.",
 );
 
 export {

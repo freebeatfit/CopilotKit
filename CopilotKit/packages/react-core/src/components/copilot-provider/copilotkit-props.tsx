@@ -1,7 +1,7 @@
-import { ForwardedParametersInput } from "@copilotkit/runtime-client-gql";
+import { ForwardedParametersInput } from "@freebeatfit/runtime-client-gql";
 import { ReactNode } from "react";
 import { AuthState } from "../../context/copilot-context";
-import { CopilotTraceHandler } from "@copilotkit/shared";
+import { CopilotTraceHandler } from "@freebeatfit/shared";
 /**
  * Props for CopilotKit.
  */

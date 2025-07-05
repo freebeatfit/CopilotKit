@@ -4,7 +4,7 @@
  * ## Example
  *
  * ```ts
- * import { CopilotRuntime, BedrockAdapter } from "@copilotkit/runtime";
+ * import { CopilotRuntime, BedrockAdapter } from "@freebeatfit/runtime";
  *
  * const copilotKit = new CopilotRuntime();
  *

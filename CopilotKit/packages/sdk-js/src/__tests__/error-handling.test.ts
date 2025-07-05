@@ -1,4 +1,4 @@
-import { CopilotKitMisuseError } from "@copilotkit/shared";
+import { CopilotKitMisuseError } from "@freebeatfit/shared";
 import {
   copilotKitInterrupt,
   convertActionToDynamicStructuredTool,

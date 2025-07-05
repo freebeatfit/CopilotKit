@@ -1,5 +1,44 @@
 # ui
 
+## 3.0.0
+
+### Major Changes
+
+- frist agent copilotkit
+
+### Patch Changes
+
+- Updated dependencies
+  - @freebeatfit/runtime-client-gql@3.0.0
+  - @freebeatfit/react-core@3.0.0
+  - @freebeatfit/shared@3.0.0
+
+## 2.0.0
+
+### Major Changes
+
+- agent freebeat
+
+### Patch Changes
+
+- Updated dependencies
+  - @freebeatfit/runtime-client-gql@2.0.0
+  - @freebeatfit/react-core@2.0.0
+  - @freebeatfit/shared@2.0.0
+
+## 2.0.0-next.15
+
+### Major Changes
+
+- freebeat agent copilotkit
+
+### Patch Changes
+
+- Updated dependencies
+  - @copilotkit/runtime-client-gql@2.0.0-next.15
+  - @copilotkit/react-core@2.0.0-next.15
+  - @copilotkit/shared@2.0.0-next.15
+
 ## 1.9.2-next.14
 
 ### Patch Changes

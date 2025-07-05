@@ -7,17 +7,17 @@
  *
  * ## Install Dependencies
  *
- * This component is part of the [@copilotkit/react-ui](https://npmjs.com/package/@copilotkit/react-ui) package.
+ * This component is part of the [@freebeatfit/react-ui](https://npmjs.com/package/@freebeatfit/react-ui) package.
  *
- * ```shell npm2yarn \"@copilotkit/react-ui"\
- * npm install @copilotkit/react-core @copilotkit/react-ui
+ * ```shell npm2yarn \"@freebeatfit/react-ui"\
+ * npm install @freebeatfit/react-core @freebeatfit/react-ui
  * ```
  *
  * ## Usage
  *
  * ```tsx
- * import { CopilotChat } from "@copilotkit/react-ui";
- * import "@copilotkit/react-ui/styles.css";
+ * import { CopilotChat } from "@freebeatfit/react-ui";
+ * import "@freebeatfit/react-ui/styles.css";
  *
  * <CopilotChat
  *   labels={{
@@ -32,7 +32,7 @@
  * By default, CopilotKit components do not have any styles. You can import CopilotKit's stylesheet at the root of your project:
  * ```tsx title="YourRootComponent.tsx"
  * ...
- * import "@copilotkit/react-ui/styles.css"; // [!code highlight]
+ * import "@freebeatfit/react-ui/styles.css"; // [!code highlight]
  *
  * export function YourRootComponent() {
  *   return (
@@ -66,11 +66,11 @@ import {
   useCopilotChat,
   useCopilotContext,
   useCopilotMessagesContext,
-} from "@copilotkit/react-core";
+} from "@freebeatfit/react-core";
 import { reloadSuggestions } from "./Suggestion";
 import { CopilotChatSuggestion } from "../../types/suggestions";
-import { Message, Role, TextMessage, ImageMessage } from "@copilotkit/runtime-client-gql";
-import { randomId } from "@copilotkit/shared";
+import { Message, Role, TextMessage, ImageMessage } from "@freebeatfit/runtime-client-gql";
+import { randomId } from "@freebeatfit/shared";
 import {
   AssistantMessageProps,
   ComponentsMap,
@@ -81,7 +81,7 @@ import {
   UserMessageProps,
 } from "./props";
 
-import { HintFunction, runAgent, stopAgent } from "@copilotkit/react-core";
+import { HintFunction, runAgent, stopAgent } from "@freebeatfit/react-core";
 import { ImageUploadQueue } from "./ImageUploadQueue";
 import { Suggestions as DefaultRenderSuggestionsList } from "./Suggestions";
 

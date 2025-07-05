@@ -1,4 +1,4 @@
-import { Parameter, Action } from "@copilotkit/shared";
+import { Parameter, Action } from "@freebeatfit/shared";
 import { RemoteRunnable } from "langchain/runnables/remote";
 
 export interface RemoteChainParameters {

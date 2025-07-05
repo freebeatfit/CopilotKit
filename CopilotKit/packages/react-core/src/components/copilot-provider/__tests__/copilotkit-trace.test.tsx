@@ -1,5 +1,5 @@
 /// <reference types="jest" />
-import { CopilotTraceEvent, CopilotTraceHandler } from "@copilotkit/shared";
+import { CopilotTraceEvent, CopilotTraceHandler } from "@freebeatfit/shared";
 
 describe("CopilotKit onTrace types", () => {
   let mockTrace: jest.Mock;

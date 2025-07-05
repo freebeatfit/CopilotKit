@@ -7,7 +7,7 @@ import {
   parseJson,
   CopilotKitError,
   CopilotKitErrorCode,
-} from "@copilotkit/shared";
+} from "@freebeatfit/shared";
 import {
   Message,
   TextMessage,
@@ -32,7 +32,7 @@ import {
   LangGraphInterruptEvent,
   MetaEventInput,
   AgentStateInput,
-} from "@copilotkit/runtime-client-gql";
+} from "@freebeatfit/runtime-client-gql";
 
 import { CopilotApiConfig } from "../context";
 import { FrontendAction, processActionsForRuntimeRequest } from "../types/frontend-action";

@@ -2,10 +2,10 @@ import {
   CopilotContextParams,
   CopilotMessagesContextParams,
   defaultCopilotContextCategories,
-} from "@copilotkit/react-core";
+} from "@freebeatfit/react-core";
 import { CopilotKitVersion } from "./types";
-import { ActionExecutionMessage, ResultMessage, TextMessage } from "@copilotkit/runtime-client-gql";
-import { AgentStateMessage } from "@copilotkit/runtime-client-gql";
+import { ActionExecutionMessage, ResultMessage, TextMessage } from "@freebeatfit/runtime-client-gql";
+import { AgentStateMessage } from "@freebeatfit/runtime-client-gql";
 
 export function shouldShowDevConsole(showDevConsole: boolean): boolean {
   return showDevConsole;
@@ -43,7 +43,7 @@ export async function getPublishedCopilotKitVersion(
       body: JSON.stringify({
         packages: [
           {
-            packageName: "@copilotkit/shared",
+            packageName: "@freebeatfit/shared",
             packageVersion: current,
           },
         ],

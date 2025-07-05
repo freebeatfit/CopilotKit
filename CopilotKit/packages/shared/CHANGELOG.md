@@ -1,5 +1,23 @@
 # @copilotkit/shared
 
+## 3.0.0
+
+### Major Changes
+
+- frist agent copilotkit
+
+## 2.0.0
+
+### Major Changes
+
+- agent freebeat
+
+## 2.0.0-next.15
+
+### Major Changes
+
+- freebeat agent copilotkit
+
 ## 1.9.2-next.14
 
 ## 1.9.2-next.13

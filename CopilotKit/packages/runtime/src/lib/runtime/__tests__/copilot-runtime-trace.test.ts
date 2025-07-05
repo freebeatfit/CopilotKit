@@ -1,4 +1,4 @@
-import { CopilotTraceEvent, CopilotRequestContext, CopilotTraceHandler } from "@copilotkit/shared";
+import { CopilotTraceEvent, CopilotRequestContext, CopilotTraceHandler } from "@freebeatfit/shared";
 
 describe("CopilotRuntime onTrace types", () => {
   it("should have correct CopilotTraceEvent type structure", () => {
