@@ -1,48 +1,128 @@
 # @copilotkit/sdk-js
 
-## 4.0.0
-
-### Major Changes
-
-- 8de66e8: update
+## 1.9.3
 
 ### Patch Changes
 
-- Updated dependencies [8de66e8]
-  - @freebeatfit/shared@4.0.0
+- Updated dependencies [1bda332]
+  - @copilotkit/shared@1.9.3
 
-## 3.0.0
-
-### Major Changes
-
-- frist agent copilotkit
+## 1.9.3-next.4
 
 ### Patch Changes
 
-- Updated dependencies
-  - @freebeatfit/shared@3.0.0
+- @copilotkit/shared@1.9.3-next.4
 
-## 2.0.0
-
-### Major Changes
-
-- agent freebeat
+## 1.9.3-next.3
 
 ### Patch Changes
 
-- Updated dependencies
-  - @freebeatfit/shared@2.0.0
+- Updated dependencies [1bda332]
+  - @copilotkit/shared@1.9.3-next.3
 
-## 2.0.0-next.15
-
-### Major Changes
-
-- freebeat agent copilotkit
+## 1.9.3-next.2
 
 ### Patch Changes
 
-- Updated dependencies
-  - @copilotkit/shared@2.0.0-next.15
+- @copilotkit/shared@1.9.3-next.2
+
+## 1.9.3-next.1
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.3-next.1
+
+## 1.9.3-next.0
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.3-next.0
+
+## 1.9.2
+
+### Patch Changes
+
+- 1d1c51d: - feat: surface all errors in structured format
+- 10345a5: - feat: structured error visibility system for streaming errors
+- Updated dependencies [fac89c2]
+- Updated dependencies [9169ad7]
+- Updated dependencies [1d1c51d]
+- Updated dependencies [10345a5]
+- Updated dependencies [9169ad7]
+  - @copilotkit/shared@1.9.2
+
+## 1.9.2-next.26
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.26
+
+## 1.9.2-next.25
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.25
+
+## 1.9.2-next.24
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.24
+
+## 1.9.2-next.23
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.23
+
+## 1.9.2-next.22
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.22
+
+## 1.9.2-next.21
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.21
+
+## 1.9.2-next.20
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.20
+
+## 1.9.2-next.19
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.19
+
+## 1.9.2-next.18
+
+### Patch Changes
+
+- Updated dependencies [fac89c2]
+  - @copilotkit/shared@1.9.2-next.18
+
+## 1.9.2-next.17
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.17
+
+## 1.9.2-next.16
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.16
+
+## 1.9.2-next.15
+
+### Patch Changes
+
+- @copilotkit/shared@1.9.2-next.15
 
 ## 1.9.2-next.14
 

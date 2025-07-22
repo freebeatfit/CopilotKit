@@ -20,13 +20,12 @@ import {
   CopilotKitApiDiscoveryError,
   randomId,
   CopilotKitError,
-  CopilotKitRemoteEndpointDiscoveryError,
   CopilotKitAgentDiscoveryError,
   CopilotKitMisuseError,
   CopilotKitErrorCode,
   CopilotKitLowLevelError,
-  CopilotTraceHandler,
-  CopilotTraceEvent,
+  CopilotErrorHandler,
+  CopilotErrorEvent,
   CopilotRequestContext,
   ensureStructuredError,
 } from "@freebeatfit/shared";
@@ -66,7 +65,7 @@ import { ExtensionsInput } from "../../graphql/inputs/extensions.input";
 import { ExtensionsResponse } from "../../graphql/types/extensions-response.type";
 import { LoadAgentStateResponse } from "../../graphql/types/load-agent-state-response.type";
 import { Client as LangGraphClient } from "@langchain/langgraph-sdk";
-import { langchainMessagesToCopilotKit, isUserConfigurationError } from "./remote-lg-action";
+import { langchainMessagesToCopilotKit } from "./remote-lg-action";
 import { MetaEventInput } from "../../graphql/inputs/meta-event.input";
 import {
   CopilotObservabilityConfig,
@@ -284,23 +283,23 @@ export interface CopilotRuntimeConstructorParams<T extends Parameter[] | [] = []
   createMCPClient?: CreateMCPClientFunction;
 
   /**
-   * Optional trace handler for comprehensive debugging and observability.
+   * Optional error handler for comprehensive debugging and observability.
    *
-   * **Requires publicApiKey**: Tracing only works when requests include a valid publicApiKey.
+   * **Requires publicApiKey**: Error handling only works when requests include a valid publicApiKey.
    * This is a premium CopilotKit Cloud feature.
    *
-   * @param traceEvent - Structured trace event with rich debugging context
+   * @param errorEvent - Structured error event with rich debugging context
    *
    * @example
    * ```typescript
    * const runtime = new CopilotRuntime({
-   *   onTrace: (traceEvent) => {
-   *     debugDashboard.capture(traceEvent);
+   *   onError: (errorEvent) => {
+   *     debugDashboard.capture(errorEvent);
    *   }
    * });
    * ```
    */
-  onTrace?: CopilotTraceHandler;
+  onError?: CopilotErrorHandler;
 }
 
 export class CopilotRuntime<const T extends Parameter[] | [] = []> {
@@ -313,8 +312,8 @@ export class CopilotRuntime<const T extends Parameter[] | [] = []> {
   private delegateAgentProcessingToServiceAdapter: boolean;
   private observability?: CopilotObservabilityConfig;
   private availableAgents: Pick<AgentWithEndpoint, "name" | "id">[];
-  private onTrace?: CopilotTraceHandler;
-  private hasWarnedAboutTracing = false;
+  private onError?: CopilotErrorHandler;
+  private hasWarnedAboutError = false;
 
   // +++ MCP Properties +++
   private readonly mcpServersConfig?: MCPEndpointConfig[];
@@ -363,7 +362,7 @@ export class CopilotRuntime<const T extends Parameter[] | [] = []> {
       params?.delegateAgentProcessingToServiceAdapter || false;
     this.observability = params?.observability_c;
     this.agents = params?.agents ?? {};
-    this.onTrace = params?.onTrace;
+    this.onError = params?.onError;
     // +++ MCP Initialization +++
     this.mcpServersConfig = params?.mcpServers;
     this.createMCPClientImpl = params?.createMCPClient;
@@ -441,9 +440,7 @@ export class CopilotRuntime<const T extends Parameter[] | [] = []> {
     }
 
     const instructions =
-      "You have access to the following tools provided by external Model Context Protocol (MCP) servers:\n" +
-      mcpToolInstructions +
-      "\nUse them when appropriate to fulfill the user's request.";
+      mcpToolInstructions + "\nUse them when appropriate to fulfill the user's request.";
 
     const systemMessageIndex = messages.findIndex((msg) => msg.textMessage?.role === "system");
 
@@ -490,16 +487,11 @@ export class CopilotRuntime<const T extends Parameter[] | [] = []> {
       publicApiKey,
     } = request;
 
-    const eventSource = new RuntimeEventSource();
-    // Track request start time for logging
-    const requestStartTime = Date.now();
-    // For storing streamed chunks if progressive logging is enabled
-    const streamedChunks: any[] = [];
-
-    // Trace request start
-    await this.trace(
-      "request",
-      {
+    const eventSource = new RuntimeEventSource({
+      errorHandler: async (error, context) => {
+        await this.error("error", context, error, publicApiKey);
+      },
+      errorContext: {
         threadId,
         runId,
         source: "runtime",
@@ -507,20 +499,18 @@ export class CopilotRuntime<const T extends Parameter[] | [] = []> {
           operation: "processRuntimeRequest",
           method: "POST",
           url: url,
-          startTime: requestStartTime,
+          startTime: Date.now(),
         },
         agent: agentSession ? { name: agentSession.agentName } : undefined,
-        messages: {
-          input: rawMessages,
-          messageCount: rawMessages.length,
-        },
         technical: {
           environment: process.env.NODE_ENV,
         },
       },
-      undefined,
-      publicApiKey,
-    );
+    });
+    // Track request start time for logging
+    const requestStartTime = Date.now();
+    // For storing streamed chunks if progressive logging is enabled
+    const streamedChunks: any[] = [];
 
     try {
       if (
@@ -756,8 +746,8 @@ please use an LLM adapter instead.`,
         );
       }
 
-      // Trace the error
-      await this.trace(
+      // Track the error
+      await this.error(
         "error",
         {
           threadId,
@@ -892,19 +882,6 @@ please use an LLM adapter instead.`,
     }));
   }
 
-  /**
-   * Discover CrewAI agents from the local AGUI configuration (Simple synchronous version)
-   * This version directly maps local CrewAI agents without network validation
-   */
-  discoverCrewAIAgentsFromAgui(): Agent[] {
-    // Create a virtual endpoint for local CrewAI agents
-    return Object.values(this.agents ?? []).map((agent: CrewAIAgent) => ({
-      name: "mv_agent",
-      id: agent.agentId,
-      description: "",
-    }));
-  }
-
   async loadAgentState(
     graphqlContext: GraphQLContext,
     threadId: string,
@@ -978,7 +955,6 @@ please use an LLM adapter instead.`,
       : null;
 
     const aguiAgent = graphqlContext._copilotkit.runtime.agents[agent.name] as CrewAIAgent;
-    console.log("aguiAgent", aguiAgent);
     if (!aguiAgent) {
       throw new Error(`Agent: ${agent.name} could not be resolved`);
     }
@@ -1045,10 +1021,28 @@ please use an LLM adapter instead.`,
         messages: JSON.stringify(data.messages),
       };
     } catch (error) {
-      if (error instanceof CopilotKitError) {
-        throw error;
+      // All errors from agent state loading are user configuration issues
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorStatus = error?.response?.status || error?.status;
+
+      if (errorStatus === 404) {
+        return {
+          threadId: threadId || "",
+          threadExists: false,
+          state: JSON.stringify({}),
+          messages: JSON.stringify([]),
+        };
+      } else {
+        // Log user configuration errors at debug level to reduce noise
+        console.debug(`Agent '${agentName}' configuration issue: ${errorMessage}`);
+
+        // Throw a configuration error - all agent state loading failures are user setup issues
+        throw new ResolvedCopilotKitError({
+          status: 400,
+          message: `Agent '${agentName}' failed to execute: ${errorMessage}`,
+          code: CopilotKitErrorCode.CONFIGURATION_ERROR,
+        });
       }
-      throw new CopilotKitLowLevelError({ error, url: fetchUrl });
     }
 
     // let state: any = {};
@@ -1073,16 +1067,21 @@ please use an LLM adapter instead.`,
     // } catch (error) {
     //   // All errors from agent state loading are user configuration issues
     //   const errorMessage = error instanceof Error ? error.message : String(error);
+    //   const errorStatus = error?.response?.status || error?.status;
 
-    //   // Log user configuration errors at debug level to reduce noise
-    //   console.debug(`Agent '${agentName}' configuration issue: ${errorMessage}`);
+    //   if (errorStatus === 404) {
+    //     state = {};
+    //   } else {
+    //     // Log user configuration errors at debug level to reduce noise
+    //     console.debug(`Agent '${agentName}' configuration issue: ${errorMessage}`);
 
-    //   // Throw a configuration error - all agent state loading failures are user setup issues
-    //   throw new ResolvedCopilotKitError({
-    //     status: 400,
-    //     message: `Agent '${agentName}' failed to execute: ${errorMessage}`,
-    //     code: CopilotKitErrorCode.CONFIGURATION_ERROR,
-    //   });
+    //     // Throw a configuration error - all agent state loading failures are user setup issues
+    //     throw new ResolvedCopilotKitError({
+    //       status: 400,
+    //       message: `Agent '${agentName}' failed to execute: ${errorMessage}`,
+    //       code: CopilotKitErrorCode.CONFIGURATION_ERROR,
+    //     });
+    //   }
     // }
 
     // if (Object.keys(state).length === 0) {
@@ -1103,7 +1102,7 @@ please use an LLM adapter instead.`,
     //   };
     // }
 
-    // throw new Error(`Agent: ${agent.name} could not be resolved`);
+    throw new Error(`Agent: ${agent.name} could not be resolved`);
   }
 
   private async processAgentRequest(
@@ -1129,8 +1128,8 @@ please use an LLM adapter instead.`,
     // for backwards compatibility, deal with the case when no threadId is provided
     const threadId = threadIdFromRequest ?? agentSession.threadId;
 
-    // Trace agent request start
-    await this.trace(
+    // Track agent request start
+    await this.error(
       "agent_state",
       {
         threadId,
@@ -1220,7 +1219,27 @@ please use an LLM adapter instead.`,
     });
 
     try {
-      const eventSource = new RuntimeEventSource();
+      const eventSource = new RuntimeEventSource({
+        errorHandler: async (error, context) => {
+          await this.error("error", context, error, publicApiKey);
+        },
+        errorContext: {
+          threadId,
+          source: "agent",
+          request: {
+            operation: "processAgentRequest",
+            method: "POST",
+            startTime: requestStartTime,
+          },
+          agent: {
+            name: agentName,
+            nodeName: nodeName,
+          },
+          technical: {
+            environment: process.env.NODE_ENV,
+          },
+        },
+      });
       const stream = await currentAgent.remoteAgentHandler({
         name: agentName,
         threadId,
@@ -1310,8 +1329,8 @@ please use an LLM adapter instead.`,
               this.convertStreamingErrorToStructured(error),
             );
 
-            // Trace streaming errors
-            await this.trace(
+            // Track streaming errors
+            await this.error(
               "error",
               {
                 threadId,
@@ -1420,8 +1439,8 @@ please use an LLM adapter instead.`,
         this.convertStreamingErrorToStructured(err),
       );
 
-      // Trace the agent error
-      await this.trace(
+      // Track the agent error
+      await this.error(
         "error",
         {
           threadId,
@@ -1480,6 +1499,7 @@ please use an LLM adapter instead.`,
       frontendUrl: url,
       agents: this.agents,
       metaEvents: request.metaEvents,
+      nodeName: request.agentSession?.nodeName,
     });
 
     const configuredActions =
@@ -1593,45 +1613,45 @@ please use an LLM adapter instead.`,
     });
   }
 
-  private async trace(
-    type: CopilotTraceEvent["type"],
+  private async error(
+    type: CopilotErrorEvent["type"],
     context: CopilotRequestContext,
     error?: any,
     publicApiKey?: string,
   ): Promise<void> {
-    if (!this.onTrace) return;
+    if (!this.onError) return;
 
     // Just check if publicApiKey is defined (regardless of validity)
     if (!publicApiKey) {
-      if (!this.hasWarnedAboutTracing) {
+      if (!this.hasWarnedAboutError) {
         console.warn(
-          "CopilotKit: onTrace handler provided but requires publicApiKey to be defined for tracing to work.",
+          "CopilotKit: onError handler provided but requires publicApiKey to be defined for error handling to work.",
         );
-        this.hasWarnedAboutTracing = true;
+        this.hasWarnedAboutError = true;
       }
       return;
     }
 
     try {
-      const traceEvent: CopilotTraceEvent = {
+      const errorEvent: CopilotErrorEvent = {
         type,
         timestamp: Date.now(),
         context,
         ...(error && { error }),
       };
 
-      await this.onTrace(traceEvent);
-    } catch (traceError) {
-      // Don't let trace errors break the main flow
-      console.error("Error in onTrace handler:", traceError);
+      await this.onError(errorEvent);
+    } catch (errorHandlerError) {
+      // Don't let error handler errors break the main flow
+      console.error("Error in onError handler:", errorHandlerError);
     }
   }
 
   /**
-   * Public method to trace GraphQL validation errors
-   * This allows the GraphQL resolver to send validation errors through the trace system
+   * Public method to handle GraphQL validation errors
+   * This allows the GraphQL resolver to send validation errors through the error system
    */
-  public async traceGraphQLError(
+  public async errorGraphQLError(
     error: { message: string; code: string; type: string },
     context: {
       operation: string;
@@ -1639,10 +1659,10 @@ please use an LLM adapter instead.`,
       guardrailsEnabled: boolean;
     },
   ): Promise<void> {
-    if (!this.onTrace) return;
+    if (!this.onError) return;
 
     try {
-      await this.onTrace({
+      await this.onError({
         type: "error",
         timestamp: Date.now(),
         context: {
@@ -1662,9 +1682,9 @@ please use an LLM adapter instead.`,
         },
         error,
       });
-    } catch (traceError) {
-      // Don't let trace errors break the main flow
-      console.error("Error in onTrace handler:", traceError);
+    } catch (errorHandlerError) {
+      // Don't let error handler errors break the main flow
+      console.error("Error in onError handler:", errorHandlerError);
     }
   }
 }

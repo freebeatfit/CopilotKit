@@ -1,28 +1,68 @@
 # @copilotkit/shared
 
-## 4.0.0
+## 1.9.3
 
-### Major Changes
+### Patch Changes
 
-- 8de66e8: update
+- 1bda332: - chore(telemetry): integrate Scarf for usage analytics
 
-## 3.0.0
+## 1.9.3-next.4
 
-### Major Changes
+## 1.9.3-next.3
 
-- frist agent copilotkit
+### Patch Changes
 
-## 2.0.0
+- 1bda332: - chore(telemetry): integrate Scarf for usage analytics
 
-### Major Changes
+## 1.9.3-next.2
 
-- agent freebeat
+## 1.9.3-next.1
 
-## 2.0.0-next.15
+## 1.9.3-next.0
 
-### Major Changes
+## 1.9.2
 
-- freebeat agent copilotkit
+### Patch Changes
+
+- fac89c2: - refactor: rename onTrace to onError throughout codebase
+
+  - Rename CopilotTraceEvent to CopilotErrorEvent and CopilotTraceHandler to CopilotErrorHandler
+
+- 9169ad7: - feat: add onTrace handler for runtime and UI error/event tracking
+- 1d1c51d: - feat: surface all errors in structured format
+- 10345a5: - feat: structured error visibility system for streaming errors
+- 9169ad7: - feat: add onTrace handler for comprehensive debugging and observability - Add CopilotTraceEvent interfaces with rich debugging context, implement runtime-side tracing with publicApiKey gating, add UI-side error tracing, include comprehensive test coverage, and fix tsup build config to exclude test files
+  - fix: extract publicApiKey for all requests + trace GraphQL errors
+
+## 1.9.2-next.26
+
+## 1.9.2-next.25
+
+## 1.9.2-next.24
+
+## 1.9.2-next.23
+
+## 1.9.2-next.22
+
+## 1.9.2-next.21
+
+## 1.9.2-next.20
+
+## 1.9.2-next.19
+
+## 1.9.2-next.18
+
+### Patch Changes
+
+- fac89c2: - refactor: rename onTrace to onError throughout codebase
+
+  - Rename CopilotTraceEvent to CopilotErrorEvent and CopilotTraceHandler to CopilotErrorHandler
+
+## 1.9.2-next.17
+
+## 1.9.2-next.16
+
+## 1.9.2-next.15
 
 ## 1.9.2-next.14
 
