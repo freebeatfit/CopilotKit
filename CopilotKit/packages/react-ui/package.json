@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.0.1",
+  "version": "4.0.2",
   "sideEffects": [
     "**/*.css"
   ],
@@ -54,9 +54,9 @@
     "typescript": "^5.2.3"
   },
   "dependencies": {
-    "@freebeatfit/react-core": "workspace:*",
-    "@freebeatfit/runtime-client-gql": "workspace:*",
-    "@freebeatfit/shared": "workspace:*",
+    "@freebeatfit/react-core": "4.0.2",
+    "@freebeatfit/runtime-client-gql": "4.0.2",
+    "@freebeatfit/shared": "4.0.2",
     "@headlessui/react": "^2.1.3",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^15.6.1",

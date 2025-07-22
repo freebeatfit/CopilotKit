@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.0.1",
+  "version": "4.0.2",
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -54,11 +54,11 @@
     "ts-node": "^10.9.2",
     "tsup": "^6.7.0",
     "typescript": "^5.4.5",
-    "@freebeatfit/runtime": "workspace:*",
+    "@freebeatfit/runtime": "4.0.2",
     "graphql": "^16.8.1"
   },
   "dependencies": {
-    "@freebeatfit/shared": "workspace:*",
+    "@freebeatfit/shared": "4.0.2",
     "@urql/core": "^5.0.3",
     "untruncate-json": "^0.0.1",
     "urql": "^4.1.0"
