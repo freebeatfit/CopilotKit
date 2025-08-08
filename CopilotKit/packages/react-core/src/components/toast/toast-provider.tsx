@@ -1,8 +1,6 @@
 import { GraphQLError } from "@freebeatfit/runtime-client-gql";
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { ErrorToast } from "../error-boundary/error-utils";
-import { PartialBy, CopilotKitError, CopilotKitErrorCode, Severity } from "@freebeatfit/shared";
-import { renderCopilotKitUsage } from "../usage-banner";
+import { PartialBy, CopilotKitError, Severity } from "@freebeatfit/shared";
 
 interface Toast {
   id: string;

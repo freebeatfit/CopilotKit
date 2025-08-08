@@ -1,5 +1,236 @@
 # ui
 
+## 1.10.0
+
+### Minor Changes
+
+- 8674da1: - refactor(headless): completely overhaul headless ui to better support agentic features
+
+  Headless UI has been in a bad state for a bit now. When we added support for different
+  agentic runtimes we acquired tech-debt that, with this PR, is being alleviated.
+
+  As such, the following features have been updated to be completely functional with Headless UI.
+
+  - Generative UI
+  - Suggestions
+  - Agentic Generative UI
+  - Interrupts
+
+  In addition, a variety of QOL changes have been made.
+
+  - New AG-UI based message types
+  - Inline code rendering is fixed
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+### Patch Changes
+
+- 967d0ab: - refactor(chat): separate useCopilotChat into internal implementation and public API
+- 2354be4: - feat(chat): implement custom error handling in CopilotChat and Modal components
+
+  - Added `renderError` prop to `CopilotChat` for inline error rendering.
+  - Introduced `triggerChatError` function to manage chat-specific errors and observability hooks.
+  - Updated `Modal` to handle observability hooks with public API key checks.
+  - Enhanced `CopilotObservabilityHooks` interface to include `onError` for error event handling.
+
+- a8c0263: - feat: add event hooks system for chat components
+- 6d1de58: - fix: address issues that would cause headless UI breaking changes in the next release
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - fix: more fixes addressing breaking changes in new Headless UI
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: address linting issues
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: fixing branding and docs
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: more docs fixing
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+- Updated dependencies [967d0ab]
+- Updated dependencies [a8c0263]
+- Updated dependencies [8674da1]
+- Updated dependencies [6d1de58]
+- Updated dependencies [6de24ce]
+- Updated dependencies [b64555d]
+  - @copilotkit/react-core@1.10.0
+  - @copilotkit/shared@1.10.0
+  - @copilotkit/runtime-client-gql@1.10.0
+
+## 1.10.0-next.13
+
+### Patch Changes
+
+- @copilotkit/runtime-client-gql@1.10.0-next.13
+- @copilotkit/react-core@1.10.0-next.13
+- @copilotkit/shared@1.10.0-next.13
+
+## 1.10.0-next.12
+
+### Patch Changes
+
+- Updated dependencies [b64555d]
+  - @copilotkit/react-core@1.10.0-next.12
+  - @copilotkit/runtime-client-gql@1.10.0-next.12
+  - @copilotkit/shared@1.10.0-next.12
+
+## 1.10.0-next.11
+
+### Patch Changes
+
+- @copilotkit/runtime-client-gql@1.10.0-next.11
+- @copilotkit/react-core@1.10.0-next.11
+- @copilotkit/shared@1.10.0-next.11
+
+## 1.10.0-next.10
+
+### Patch Changes
+
+- 6d1de58: - fix: address issues that would cause headless UI breaking changes in the next release
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - fix: more fixes addressing breaking changes in new Headless UI
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: address linting issues
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: fixing branding and docs
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: more docs fixing
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+- Updated dependencies [6d1de58]
+  - @copilotkit/react-core@1.10.0-next.10
+  - @copilotkit/shared@1.10.0-next.10
+  - @copilotkit/runtime-client-gql@1.10.0-next.10
+
+## 1.10.0-next.9
+
+### Patch Changes
+
+- 2354be4: - feat(chat): implement custom error handling in CopilotChat and Modal components
+
+  - Added `renderError` prop to `CopilotChat` for inline error rendering.
+  - Introduced `triggerChatError` function to manage chat-specific errors and observability hooks.
+  - Updated `Modal` to handle observability hooks with public API key checks.
+  - Enhanced `CopilotObservabilityHooks` interface to include `onError` for error event handling.
+  - @copilotkit/react-core@1.10.0-next.9
+  - @copilotkit/runtime-client-gql@1.10.0-next.9
+  - @copilotkit/shared@1.10.0-next.9
+
+## 1.10.0-next.8
+
+### Patch Changes
+
+- Updated dependencies [6de24ce]
+  - @copilotkit/react-core@1.10.0-next.8
+  - @copilotkit/runtime-client-gql@1.10.0-next.8
+  - @copilotkit/shared@1.10.0-next.8
+
+## 1.10.0-next.7
+
+### Patch Changes
+
+- @copilotkit/runtime-client-gql@1.10.0-next.7
+- @copilotkit/react-core@1.10.0-next.7
+- @copilotkit/shared@1.10.0-next.7
+
+## 1.10.0-next.6
+
+### Patch Changes
+
+- @copilotkit/runtime-client-gql@1.10.0-next.6
+- @copilotkit/react-core@1.10.0-next.6
+- @copilotkit/shared@1.10.0-next.6
+
+## 1.10.0-next.5
+
+### Patch Changes
+
+- a8c0263: - feat: add event hooks system for chat components
+- Updated dependencies [a8c0263]
+  - @copilotkit/shared@1.10.0-next.5
+  - @copilotkit/react-core@1.10.0-next.5
+  - @copilotkit/runtime-client-gql@1.10.0-next.5
+
+## 1.10.0-next.4
+
+### Patch Changes
+
+- 967d0ab: - refactor(chat): separate useCopilotChat into internal implementation and public API
+- Updated dependencies [967d0ab]
+  - @copilotkit/react-core@1.10.0-next.4
+  - @copilotkit/runtime-client-gql@1.10.0-next.4
+  - @copilotkit/shared@1.10.0-next.4
+
+## 1.10.0-next.3
+
+### Patch Changes
+
+- @copilotkit/runtime-client-gql@1.10.0-next.3
+- @copilotkit/react-core@1.10.0-next.3
+- @copilotkit/shared@1.10.0-next.3
+
+## 1.10.0-next.2
+
+### Patch Changes
+
+- @copilotkit/runtime-client-gql@1.10.0-next.2
+- @copilotkit/react-core@1.10.0-next.2
+- @copilotkit/shared@1.10.0-next.2
+
+## 1.10.0-next.1
+
+### Patch Changes
+
+- @copilotkit/runtime-client-gql@1.10.0-next.1
+- @copilotkit/react-core@1.10.0-next.1
+- @copilotkit/shared@1.10.0-next.1
+
+## 1.10.0-next.0
+
+### Minor Changes
+
+- 8674da1: - refactor(headless): completely overhaul headless ui to better support agentic features
+
+  Headless UI has been in a bad state for a bit now. When we added support for different
+  agentic runtimes we acquired tech-debt that, with this PR, is being alleviated.
+
+  As such, the following features have been updated to be completely functional with Headless UI.
+
+  - Generative UI
+  - Suggestions
+  - Agentic Generative UI
+  - Interrupts
+
+  In addition, a variety of QOL changes have been made.
+
+  - New AG-UI based message types
+  - Inline code rendering is fixed
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+### Patch Changes
+
+- Updated dependencies [8674da1]
+  - @copilotkit/react-core@1.10.0-next.0
+  - @copilotkit/shared@1.10.0-next.0
+  - @copilotkit/runtime-client-gql@1.10.0-next.0
+
 ## 1.9.3
 
 ### Patch Changes
