@@ -73,9 +73,8 @@ import {
   LLMResponseData,
   LLMErrorData,
 } from "../observability";
-import { AbstractAgent } from "@ag-ui/client";
+import { AbstractAgent, HttpAgent } from "@ag-ui/client";
 import { MessageRole } from "../../graphql/types/enums";
-import { CrewAIAgent } from "@ag-ui/crewai";
 
 // +++ MCP Imports +++
 import {
@@ -286,7 +285,7 @@ export interface CopilotRuntimeConstructorParams<T extends Parameter[] | [] = []
    * Optional error handler for comprehensive debugging and observability.
    *
    * **Requires publicApiKey**: Error handling only works when requests include a valid publicApiKey.
-   * This is a premium CopilotKit Cloud feature.
+   * This is a premium Copilot Cloud feature.
    *
    * @param errorEvent - Structured error event with rich debugging context
    *
@@ -950,11 +949,8 @@ please use an LLM adapter instead.`,
       }
     }
 
-    const propertyHeaders = graphqlContext.properties.authorization
-      ? { authorization: `Bearer ${graphqlContext.properties.authorization}` }
-      : null;
-
-    const aguiAgent = graphqlContext._copilotkit.runtime.agents[agent.name] as CrewAIAgent;
+    // ag-ui
+    const aguiAgent = graphqlContext._copilotkit.runtime.agents[agent.name] as HttpAgent;
     if (!aguiAgent) {
       throw new Error(`Agent: ${agent.name} could not be resolved`);
     }
@@ -1044,6 +1040,11 @@ please use an LLM adapter instead.`,
         });
       }
     }
+
+    // langgraph
+    // const propertyHeaders = graphqlContext.properties.authorization
+    //   ? { Authorization: `Bearer ${graphqlContext.properties.authorization}` }
+    //   : null;
 
     // let state: any = {};
     // try {

@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.1.0",
+  "version": "4.10.1",
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -52,9 +52,8 @@
     "@ag-ui/encoder": "0.0.35",
     "@ag-ui/langgraph": "0.0.8",
     "@ag-ui/proto": "0.0.35",
-    "@ag-ui/crewai": "^0.0.2",
     "@anthropic-ai/sdk": "^0.57.0",
-    "@freebeatfit/shared": "4.1.0",
+    "@freebeatfit/shared": "4.10.1",
     "@graphql-yoga/plugin-defer-stream": "^3.3.1",
     "@langchain/aws": "^0.1.9",
     "@langchain/community": "^0.3.29",
