@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.0.2",
+  "version": "4.10.2",
   "sideEffects": [
     "**/*.css"
   ],
@@ -59,9 +59,9 @@
     "typescript": "^5.2.3"
   },
   "dependencies": {
-    "@freebeatfit/react-core": "4.0.2",
-    "@freebeatfit/runtime-client-gql": "4.0.2",
-    "@freebeatfit/shared": "4.0.2",
+    "@freebeatfit/react-core": "4.10.2",
+    "@freebeatfit/runtime-client-gql": "4.10.2",
+    "@freebeatfit/shared": "4.10.2",
     "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",

@@ -7,6 +7,29 @@ import { FaPython } from "react-icons/fa";
 import { SiCrewai } from "@icons-pack/react-simple-icons";
 import { LuLayoutTemplate } from "react-icons/lu";
 import { IconBaseProps } from "react-icons";
+import { RocketIcon } from "lucide-react";
+
+export const DirectToLLMIcon = (props: IconBaseProps) => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M12 2L13.09 8.26L20 9L15 14L16.18 21L12 17.77L7.82 21L9 14L2 9L8.91 8.26L12 2Z"
+      fill="currentColor"
+    />
+    <path
+      d="M12 16L10.5 22L12 20.5L13.5 22L12 16Z"
+      fill="currentColor"
+      opacity="0.6"
+    />
+  </svg>
+);
+
 export const AG2Icon = (props: IconBaseProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -172,6 +195,31 @@ export const LlamaIndexIcon = (props: IconBaseProps) => (
   </svg>
 );
 
+export const PydanticAIIcon = (props: IconBaseProps) => (
+  <svg
+    width="139px"
+    height="120px"
+    viewBox="0 0 139 120"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+      <g
+        id="pydantic-logo"
+        transform="translate(0, 0.1733)"
+        fill="currentColor"
+        fillRule="nonzero"
+      >
+        <path
+          d="M137.124,90.38975 L73.371,2.06775 C71.364,-0.68925 66.738,-0.68925 64.751,2.06775 L0.998,90.38975 C0.349072482,91.2935362 0,92.3781241 0,93.49075 C0.00318943775,95.7819584 1.469778,97.814973 3.643,98.54075 L67.397,119.39175 L67.407,119.39175 C68.4772724,119.740719 69.6307276,119.740719 70.701,119.39175 L70.711,119.39175 L134.464,98.54175 C136.077884,98.0193374 137.341287,96.7514677 137.858,95.13575 C138.390392,93.5257019 138.111354,91.7575889 137.109,90.38975 L137.124,90.38975 Z M69.064,14.23875 L94.617,49.64175 L70.721,41.82875 C70.536,41.76875 70.341,41.77875 70.157,41.73475 C69.976359,41.6901364 69.7924394,41.6600405 69.607,41.64475 C69.423,41.61975 69.248,41.54975 69.064,41.54975 C68.879,41.54975 68.709,41.61975 68.524,41.64475 C68.34,41.66475 68.155,41.69475 67.976,41.73475 C67.786,41.76975 67.591,41.76975 67.422,41.82875 L43.67,49.59675 L43.52,49.64675 L69.074,14.23675 L69.064,14.23675 L69.064,14.23875 Z M32.96,64.26475 L60.779,55.16075 L63.749,54.19375 L63.749,107.03175 L13.869,90.71375 L32.959,64.26475 L32.96,64.26475 Z M74.384,107.02175 L74.384,54.19375 L105.172,64.26475 L124.263,90.69875 L74.379,107.02175 L74.384,107.02175 Z"
+          id="Shape"
+        ></path>
+      </g>
+    </g>
+  </svg>
+);
+
 export const customIcons = {
   react: FaReact,
   server: HiOutlineServerStack,
@@ -188,4 +236,6 @@ export const customIcons = {
   agno: AgnoIcon,
   agnoBlack: AgnoIconBlack,
   llamaindex: LlamaIndexIcon,
+  pydantic: PydanticAIIcon,
+  "direct-to-llm": RocketIcon,
 };

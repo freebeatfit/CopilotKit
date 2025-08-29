@@ -1,0 +1,186 @@
+# CopilotKit NPM包发布自动化规则
+
+## 发布流程概述
+当用户要求发布npm包时，按照以下严格步骤执行：
+
+### 1. 版本更新规则
+- 用户提供目标版本号（如 4.0.3, 4.1.0, 4.10.1等）
+- 必须更新所有7个包的版本号：
+  - `packages/react-core/package.json`
+  - `packages/react-ui/package.json` 
+  - `packages/react-textarea/package.json`
+  - `packages/runtime/package.json`
+  - `packages/runtime-client-gql/package.json`
+  - `packages/sdk-js/package.json`
+  - `packages/shared/package.json`
+
+### 2. 依赖关系处理规则
+- **构建阶段**：所有内部依赖使用 `workspace:*`
+- **发布阶段**：所有内部依赖改为具体版本号
+- 内部包依赖关系：
+  ```
+  react-core 依赖: runtime-client-gql, shared
+  react-ui 依赖: react-core, runtime-client-gql, shared  
+  react-textarea 依赖: react-core, runtime-client-gql, shared
+  runtime 依赖: shared
+  runtime-client-gql 依赖: runtime, shared
+  sdk-js 依赖: shared
+  shared: 无内部依赖
+  ```
+
+### 3. 构建顺序规则
+```bash
+# 1. 安装依赖
+cd CopilotKit && pnpm install
+
+# 2. 构建所有包（确保依赖为workspace:*）
+pnpm run build
+
+# 3. 如果runtime-client-gql构建失败，先单独构建runtime
+cd packages/runtime && pnpm run generate-graphql-schema && pnpm run build
+cd ../runtime-client-gql && pnpm run build
+```
+
+### 4. 发布顺序规则（严格按顺序）
+1. **shared** - 基础包，无依赖
+2. **runtime** - 依赖shared
+3. **runtime-client-gql** - 依赖runtime和shared
+4. **react-core** - 依赖runtime-client-gql和shared
+5. **react-ui** - 依赖react-core、runtime-client-gql和shared
+6. **react-textarea** - 依赖react-core、runtime-client-gql和shared
+7. **sdk-js** - 依赖shared
+
+### 5. 完整发布脚本模板
+
+```bash
+# 步骤1: 确保在正确目录
+cd CopilotKit
+
+# 步骤2: 安装依赖和构建
+pnpm install
+pnpm run build
+
+# 步骤3: 将内部依赖改为具体版本号
+# (使用search_replace工具批量替换)
+
+# 步骤4: 确认npm登录
+npm whoami
+
+# 步骤5: 按顺序发布
+cd packages/shared && npm publish
+cd ../runtime && npm publish  
+cd ../runtime-client-gql && npm publish
+cd ../react-core && npm publish
+cd ../react-ui && npm publish
+cd ../react-textarea && npm publish
+cd ../sdk-js && npm publish
+```
+
+### 6. 错误处理规则
+
+#### GraphQL Schema错误
+```bash
+cd packages/runtime
+pnpm run generate-graphql-schema
+ls -la __snapshots__/schema/  # 确认文件存在
+```
+
+#### 依赖安装错误
+- 检查是否缺少autoprefixer: `pnpm add -D autoprefixer -w`
+- 重新安装: `pnpm install --no-frozen-lockfile`
+
+#### 版本冲突错误
+- 确保npm上不存在相同版本
+- 检查内部依赖版本号是否一致
+
+### 7. 版本号更新自动化脚本
+
+```javascript
+// 更新所有包版本号的工具函数
+const packages = [
+  'packages/react-core/package.json',
+  'packages/react-ui/package.json', 
+  'packages/react-textarea/package.json',
+  'packages/runtime/package.json',
+  'packages/runtime-client-gql/package.json',
+  'packages/sdk-js/package.json',
+  'packages/shared/package.json'
+];
+
+const updateVersions = (targetVersion) => {
+  packages.forEach(pkg => {
+    // 使用search_replace工具更新版本号
+    search_replace({
+      file_path: `CopilotKit/${pkg}`,
+      old_string: `"version": "当前版本",`,
+      new_string: `"version": "${targetVersion}",`
+    });
+  });
+};
+```
+
+### 8. 依赖关系更新脚本
+
+```javascript
+const updateDependencies = (targetVersion, useWorkspace = false) => {
+  const depVersion = useWorkspace ? 'workspace:*' : targetVersion;
+  
+  // react-core依赖
+  search_replace({
+    file_path: 'CopilotKit/packages/react-core/package.json',
+    old_string: `"@freebeatfit/runtime-client-gql": "旧版本",\n    "@freebeatfit/shared": "旧版本",`,
+    new_string: `"@freebeatfit/runtime-client-gql": "${depVersion}",\n    "@freebeatfit/shared": "${depVersion}",`
+  });
+  
+  // 继续更新其他包...
+};
+```
+
+### 9. 发布检查清单
+
+发布前确认：
+- [ ] 所有包版本号已更新到目标版本
+- [ ] 内部依赖关系已改为具体版本号
+- [ ] 所有包构建成功
+- [ ] npm已登录 (`npm whoami`)
+- [ ] GraphQL schema文件存在（runtime-client-gql需要）
+
+发布后确认：
+- [ ] 所有7个包都成功发布
+- [ ] npm上可以搜索到新版本
+- [ ] 可以正常安装新版本
+
+### 10. 常用命令模板
+
+```bash
+# 快速版本检查
+grep -r "\"version\":" CopilotKit/packages/*/package.json
+
+# 快速依赖检查  
+grep -r "@freebeatfit/" CopilotKit/packages/*/package.json
+
+# 构建状态检查
+ls -la CopilotKit/packages/*/dist
+
+# npm发布状态检查
+npm view @freebeatfit/shared versions --json
+```
+
+### 11. 使用方法
+
+当用户说"帮我发布到npm，版本号改为X.Y.Z"时：
+
+1. 立即执行版本号更新
+2. 安装依赖和构建
+3. 更新内部依赖关系
+4. 按顺序发布所有包
+5. 确认发布成功并提供安装命令
+
+### 12. 包名映射
+- shared → @freebeatfit/shared
+- runtime → @freebeatfit/runtime  
+- runtime-client-gql → @freebeatfit/runtime-client-gql
+- react-core → @freebeatfit/react-core
+- react-ui → @freebeatfit/react-ui
+- react-textarea → @freebeatfit/react-textarea
+- sdk-js → @freebeatfit/sdk-js 

@@ -1,4 +1,137 @@
-# @copilotkit/shared
+# @freebeatfit/shared
+
+## 1.10.2
+
+## 1.10.2-next.0
+
+## 1.10.1
+
+## 1.10.1-next.2
+
+## 1.10.1-next.1
+
+## 1.10.1-next.0
+
+## 1.10.0
+
+### Minor Changes
+
+- 8674da1: - refactor(headless): completely overhaul headless ui to better support agentic features
+
+  Headless UI has been in a bad state for a bit now. When we added support for different
+  agentic runtimes we acquired tech-debt that, with this PR, is being alleviated.
+
+  As such, the following features have been updated to be completely functional with Headless UI.
+
+  - Generative UI
+  - Suggestions
+  - Agentic Generative UI
+  - Interrupts
+
+  In addition, a variety of QOL changes have been made.
+
+  - New AG-UI based message types
+  - Inline code rendering is fixed
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+### Patch Changes
+
+- a8c0263: - feat: add event hooks system for chat components
+- 6d1de58: - fix: address issues that would cause headless UI breaking changes in the next release
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - fix: more fixes addressing breaking changes in new Headless UI
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: address linting issues
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: fixing branding and docs
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: more docs fixing
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+## 1.10.0-next.13
+
+## 1.10.0-next.12
+
+## 1.10.0-next.11
+
+## 1.10.0-next.10
+
+### Patch Changes
+
+- 6d1de58: - fix: address issues that would cause headless UI breaking changes in the next release
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - fix: more fixes addressing breaking changes in new Headless UI
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: address linting issues
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: fixing branding and docs
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+  - chore: more docs fixing
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
+
+## 1.10.0-next.9
+
+## 1.10.0-next.8
+
+## 1.10.0-next.7
+
+## 1.10.0-next.6
+
+## 1.10.0-next.5
+
+### Patch Changes
+
+- a8c0263: - feat: add event hooks system for chat components
+
+## 1.10.0-next.4
+
+## 1.10.0-next.3
+
+## 1.10.0-next.2
+
+## 1.10.0-next.1
+
+## 1.10.0-next.0
+
+### Minor Changes
+
+- 8674da1: - refactor(headless): completely overhaul headless ui to better support agentic features
+
+  Headless UI has been in a bad state for a bit now. When we added support for different
+  agentic runtimes we acquired tech-debt that, with this PR, is being alleviated.
+
+  As such, the following features have been updated to be completely functional with Headless UI.
+
+  - Generative UI
+  - Suggestions
+  - Agentic Generative UI
+  - Interrupts
+
+  In addition, a variety of QOL changes have been made.
+
+  - New AG-UI based message types
+  - Inline code rendering is fixed
+
+  Signed-off-by: Tyler Slaton <tyler@copilotkit.ai>
 
 ## 1.9.3
 
@@ -676,7 +809,7 @@
 
   CopilotKid Back-end SDK:
 
-  - Released a whole-new `@copilotkit/sdk-js` for building agents with LangGraph JS Support
+  - Released a whole-new `@freebeatfit/sdk-js` for building agents with LangGraph JS Support
 
 - 8d0144f: bump
 - 8d0144f: bump
@@ -749,7 +882,7 @@ CoAgents:
 
 CopilotKid Back-end SDK:
 
-- Released a whole-new `@copilotkit/sdk-js` for building agents with LangGraph JS Support
+- Released a whole-new `@freebeatfit/sdk-js` for building agents with LangGraph JS Support
 
 ### Patch Changes
 
@@ -986,7 +1119,7 @@ CopilotKid Back-end SDK:
 
 ### Patch Changes
 
-- Include @copilotkit/runtime-client-gql NPM package version in request to Runtime
+- Include @freebeatfit/runtime-client-gql NPM package version in request to Runtime
 
 ## 1.0.4
 

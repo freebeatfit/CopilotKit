@@ -4,12 +4,7 @@ import {
   defaultCopilotContextCategories,
 } from "@freebeatfit/react-core";
 import { CopilotKitVersion } from "./types";
-import { ActionExecutionMessage, ResultMessage, TextMessage } from "@freebeatfit/runtime-client-gql";
-import { AgentStateMessage } from "@freebeatfit/runtime-client-gql";
-
-export function shouldShowDevConsole(showDevConsole: boolean): boolean {
-  return showDevConsole;
-}
+export { shouldShowDevConsole } from "@freebeatfit/react-core";
 
 export async function getPublishedCopilotKitVersion(
   current: string,

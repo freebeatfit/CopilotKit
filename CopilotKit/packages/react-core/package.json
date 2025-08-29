@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.0.2",
+  "version": "4.10.2",
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -53,8 +53,8 @@
     "typescript": "^5.2.3"
   },
   "dependencies": {
-    "@freebeatfit/runtime-client-gql": "4.0.2",
-    "@freebeatfit/shared": "4.0.2",
+    "@freebeatfit/runtime-client-gql": "4.10.2",
+    "@freebeatfit/shared": "4.10.2",
     "@scarf/scarf": "^1.3.0",
     "react-markdown": "^8.0.7",
     "untruncate-json": "^0.0.1"

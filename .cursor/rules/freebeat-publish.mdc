@@ -1,0 +1,154 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# CopilotKit NPM包发布自动化规则
+
+## 发布流程概述
+当用户要求发布npm包时，严格按照以下步骤执行：
+
+### 1. 版本更新规则
+- 用户提供目标版本号（如 4.0.3, 4.1.0, 4.10.1等）
+- 必须更新所有7个包的版本号：
+  - `CopilotKit/packages/react-core/package.json`
+  - `CopilotKit/packages/react-ui/package.json` 
+  - `CopilotKit/packages/react-textarea/package.json`
+  - `CopilotKit/packages/runtime/package.json`
+  - `CopilotKit/packages/runtime-client-gql/package.json`
+  - `CopilotKit/packages/sdk-js/package.json`
+  - `CopilotKit/packages/shared/package.json`
+
+### 2. 依赖关系处理规则
+- **构建阶段**：所有内部依赖使用 `workspace:*`
+- **发布阶段**：所有内部依赖改为具体版本号
+- 内部包依赖关系：
+  ```
+  react-core 依赖: runtime-client-gql, shared
+  react-ui 依赖: react-core, runtime-client-gql, shared  
+  react-textarea 依赖: react-core, runtime-client-gql, shared
+  runtime 依赖: shared
+  runtime-client-gql 依赖: runtime, shared
+  sdk-js 依赖: shared
+  shared: 无内部依赖
+  ```
+
+### 3. 发布命令序列模板
+```bash
+# 1. 切换到正确目录
+cd CopilotKit
+
+# 2. 更新所有包版本号到目标版本 (例如 4.0.3)
+# 使用 search_replace 工具更新每个 package.json 的 version 字段
+
+# 3. 安装依赖并构建
+pnpm install
+pnpm run build
+
+# 4. 将内部依赖从 workspace:* 改为具体版本号
+# 使用 search_replace 工具更新所有内部依赖
+
+# 5. 检查npm登录状态
+npm whoami
+
+# 6. 按依赖顺序发布包
+cd packages/shared && npm publish
+cd ../runtime && npm publish  
+cd ../runtime-client-gql && npm publish
+cd ../react-core && npm publish
+cd ../react-ui && npm publish
+cd ../react-textarea && npm publish
+cd ../sdk-js && npm publish
+```
+
+### 4. 发布顺序规则（严格执行）
+1. **@freebeatfit/shared** - 基础包，无依赖
+2. **@freebeatfit/runtime** - 依赖 shared
+3. **@freebeatfit/runtime-client-gql** - 依赖 runtime, shared
+4. **@freebeatfit/react-core** - 依赖 runtime-client-gql, shared
+5. **@freebeatfit/react-ui** - 依赖 react-core, runtime-client-gql, shared
+6. **@freebeatfit/react-textarea** - 依赖 react-core, runtime-client-gql, shared  
+7. **@freebeatfit/sdk-js** - 依赖 shared
+
+### 5. 错误处理规则
+
+#### GraphQL Schema 错误处理
+如果 runtime-client-gql 构建失败（缺少schema文件）：
+```bash
+cd CopilotKit/packages/runtime
+pnpm run generate-graphql-schema
+```
+
+#### 版本冲突处理
+如果出现版本已存在错误，需要升级到下一个版本号
+
+#### 依赖安装错误处理
+```bash
+pnpm install --no-frozen-lockfile
+```
+
+### 6. 自动化脚本模板
+
+#### 版本号更新脚本
+```bash
+# 将所有包从当前版本更新到目标版本 {VERSION}
+search_replace("  \"version\": \"当前版本\",", "  \"version\": \"{VERSION}\",") 
+# 对每个package.json文件执行
+```
+
+#### 依赖关系更新脚本  
+```bash
+# react-core dependencies
+search_replace("\"@freebeatfit/runtime-client-gql\": \"workspace:*\",\n    \"@freebeatfit/shared\": \"workspace:*\",", "\"@freebeatfit/runtime-client-gql\": \"{VERSION}\",\n    \"@freebeatfit/shared\": \"{VERSION}\",")
+
+# react-ui dependencies  
+search_replace("\"@freebeatfit/react-core\": \"workspace:*\",\n    \"@freebeatfit/runtime-client-gql\": \"workspace:*\",\n    \"@freebeatfit/shared\": \"workspace:*\",", "\"@freebeatfit/react-core\": \"{VERSION}\",\n    \"@freebeatfit/runtime-client-gql\": \"{VERSION}\",\n    \"@freebeatfit/shared\": \"{VERSION}\",")
+
+# react-textarea dependencies
+search_replace("\"@freebeatfit/react-core\": \"workspace:*\",\n    \"@freebeatfit/runtime-client-gql\": \"workspace:*\",\n    \"@freebeatfit/shared\": \"workspace:*\",", "\"@freebeatfit/react-core\": \"{VERSION}\",\n    \"@freebeatfit/runtime-client-gql\": \"{VERSION}\",\n    \"@freebeatfit/shared\": \"{VERSION}\",")
+
+# runtime dependencies
+search_replace("\"@freebeatfit/shared\": \"workspace:*\",", "\"@freebeatfit/shared\": \"{VERSION}\",")
+
+# runtime-client-gql dependencies
+search_replace("\"@freebeatfit/runtime\": \"workspace:*\",", "\"@freebeatfit/runtime\": \"{VERSION}\",")
+search_replace("\"@freebeatfit/shared\": \"workspace:*\",", "\"@freebeatfit/shared\": \"{VERSION}\",")
+
+# sdk-js dependencies  
+search_replace("\"@freebeatfit/shared\": \"workspace:*\",", "\"@freebeatfit/shared\": \"{VERSION}\",")
+```
+
+### 7. 检查清单
+发布前必须确认：
+- [ ] 所有包版本号一致
+- [ ] 内部依赖关系正确
+- [ ] npm已登录
+- [ ] 所有包构建成功
+- [ ] GraphQL schema文件存在
+
+发布后验证：
+- [ ] 所有包都成功发布到npm
+- [ ] 可以正常安装新版本包
+- [ ] 依赖关系无错误
+
+### 8. 常用调试命令
+```bash
+# 检查包版本
+npm view @freebeatfit/shared versions --json
+
+# 检查依赖关系
+npm ls --depth=0
+
+# 重新生成lockfile
+rm pnpm-lock.yaml && pnpm install
+
+# 清理构建缓存
+pnpm run clean && pnpm run build
+```
+
+## 重要提醒
+- 发布是不可逆操作，确保版本号正确
+- 严格按照依赖顺序发布
+- 发布前必须将workspace依赖改为具体版本
+- 出现错误时优先查看上述错误处理方案
+- 每次发布后都要验证安装是否正常
