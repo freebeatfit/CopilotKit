@@ -2,9 +2,10 @@
   "title": "AutoGen2",
   "root": true,
   "pages": [
-    "index",
     "---Getting Started---",
+    "index",
     "quickstart",
+    "vibe-coding-mcp",
     "---Custom Look and Feel---",
     "...custom-look-and-feel",
     "---Guides---",

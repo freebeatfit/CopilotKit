@@ -1,5 +1,73 @@
 # @freebeatfit/sdk-js
 
+## 1.10.4
+
+### Patch Changes
+
+- Updated dependencies [a640d8e]
+  - @freebeatfit/shared@1.10.4
+
+## 1.10.4-next.3
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.4-next.3
+
+## 1.10.4-next.2
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.4-next.2
+
+## 1.10.4-next.1
+
+### Patch Changes
+
+- Updated dependencies [a640d8e]
+  - @freebeatfit/shared@1.10.4-next.1
+
+## 1.10.4-next.0
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.4-next.0
+
+## 1.10.3
+
+### Patch Changes
+
+- f566562: - fix: allow dependents to decide langgraph version by using peer dependencies
+  - fix: adjust sdk to accept two forms of actions from agui
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3
+
+## 1.10.3-next.3
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.3-next.3
+
+## 1.10.3-next.2
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.3-next.2
+
+## 1.10.3-next.1
+
+### Patch Changes
+
+- f566562: - fix: allow dependents to decide langgraph version by using peer dependencies
+  - fix: adjust sdk to accept two forms of actions from agui
+  - @freebeatfit/shared@1.10.3-next.1
+
+## 1.10.3-next.0
+
+### Patch Changes
+
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3-next.0
+
 ## 1.10.2
 
 ### Patch Changes

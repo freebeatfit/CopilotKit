@@ -1,8 +1,8 @@
 import { Logger } from "pino";
-import { catchError, Observable } from "rxjs";
+import { catchError, mergeMap, Observable, of, throwError } from "rxjs";
 import { AgentStateInput } from "../../graphql/inputs/agent-state.input";
 import { Message } from "../../graphql/types/converted";
-import { RuntimeEvent } from "../../service-adapters/events";
+import { RuntimeErrorEvent, RuntimeEvent, RuntimeEventTypes } from "../../service-adapters/events";
 import telemetry from "../telemetry-client";
 import { RemoteAgentHandlerParams } from "./remote-actions";
 
@@ -58,7 +58,7 @@ export function constructAGUIRemoteAction({
       });
 
       let state = {};
-      let config = {};
+      let config: Record<string, unknown> = {};
       if (agentStates) {
         const jsonState = agentStates.find((state) => state.agentName === agent.agentId);
         if (jsonState) {
@@ -76,11 +76,14 @@ export function constructAGUIRemoteAction({
         };
       });
 
+      const { streamSubgraphs, ...restConfig } = config;
+
       const forwardedProps = {
-        config,
+        config: restConfig,
         ...(metaEvents?.length ? { command: { resume: metaEvents[0]?.response } } : {}),
         ...(threadMetadata ? { threadMetadata } : {}),
         ...(nodeName ? { nodeName } : {}),
+        ...(streamSubgraphs ? { streamSubgraphs } : {}),
         // Forward properties from the graphql context to the agent, e.g Authorization token
         ...graphqlContext.properties,
       };
@@ -91,6 +94,16 @@ export function constructAGUIRemoteAction({
           forwardedProps,
         }) as Observable<RuntimeEvent>
       ).pipe(
+        mergeMap((event) => {
+          if (event.type === RuntimeEventTypes.RunError) {
+            const { message } = event as RuntimeErrorEvent;
+            return throwError(
+              () => new CopilotKitError({ message, code: CopilotKitErrorCode.UNKNOWN }),
+            );
+          }
+          // pass through non-error events
+          return of(event);
+        }),
         catchError((err) => {
           throw new CopilotKitError({
             message: err.message,

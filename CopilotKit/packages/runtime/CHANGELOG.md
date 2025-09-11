@@ -1,5 +1,79 @@
 # @freebeatfit/runtime
 
+## 1.10.4
+
+### Patch Changes
+
+- a640d8e: - feat: update latest agui langgraph for subgraphs support
+  - feat: update latest agui core packages
+- Updated dependencies [a640d8e]
+  - @freebeatfit/shared@1.10.4
+
+## 1.10.4-next.3
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.4-next.3
+
+## 1.10.4-next.2
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.4-next.2
+
+## 1.10.4-next.1
+
+### Patch Changes
+
+- a640d8e: - feat: update latest agui langgraph for subgraphs support
+  - feat: update latest agui core packages
+- Updated dependencies [a640d8e]
+  - @freebeatfit/shared@1.10.4-next.1
+
+## 1.10.4-next.0
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.4-next.0
+
+## 1.10.3
+
+### Patch Changes
+
+- ea74047: - fix: surface run errors from agui
+- a7bb2f0: - fix: fix how node names are read to support newer langgraph versions
+- 21e12af: - feat: send streamSubgraphs forwarded prop to AGUI
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3
+
+## 1.10.3-next.3
+
+### Patch Changes
+
+- 21e12af: - feat: send streamSubgraphs forwarded prop to AGUI
+  - @freebeatfit/shared@1.10.3-next.3
+
+## 1.10.3-next.2
+
+### Patch Changes
+
+- a7bb2f0: - fix: fix how node names are read to support newer langgraph versions
+  - @freebeatfit/shared@1.10.3-next.2
+
+## 1.10.3-next.1
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.3-next.1
+
+## 1.10.3-next.0
+
+### Patch Changes
+
+- ea74047: - fix: surface run errors from agui
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3-next.0
+
 ## 1.10.2
 
 ### Patch Changes

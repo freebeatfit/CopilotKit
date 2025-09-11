@@ -1,13 +1,14 @@
 {
   "title": "Overview",
-  "root": true,
   "pages": [
-    "index",
     "---Getting Started---",
+    "index",
     "[lucide/Play][LLM Quickstart](../direct-to-llm/guides/quickstart)",
     "[lucide/Play][CoAgent Quickstart](../coagents/quickstart)",
+    "vibe-coding-mcp",
     "---Feature Overviews---",
     "agentic-chat-ui",
+    "connect-mcp-servers",
     "custom-look-and-feel",
     "copilot-suggestions",
     "human-in-the-loop",

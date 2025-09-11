@@ -1,5 +1,93 @@
 # ui
 
+## 1.10.4
+
+### Patch Changes
+
+- Updated dependencies [ef98963]
+- Updated dependencies [a640d8e]
+- Updated dependencies [052d54d]
+  - @freebeatfit/react-core@1.10.4
+  - @freebeatfit/shared@1.10.4
+  - @freebeatfit/runtime-client-gql@1.10.4
+
+## 1.10.4-next.3
+
+### Patch Changes
+
+- @freebeatfit/react-core@1.10.4-next.3
+- @freebeatfit/runtime-client-gql@1.10.4-next.3
+- @freebeatfit/shared@1.10.4-next.3
+
+## 1.10.4-next.2
+
+### Patch Changes
+
+- Updated dependencies [ef98963]
+  - @freebeatfit/react-core@1.10.4-next.2
+  - @freebeatfit/runtime-client-gql@1.10.4-next.2
+  - @freebeatfit/shared@1.10.4-next.2
+
+## 1.10.4-next.1
+
+### Patch Changes
+
+- Updated dependencies [a640d8e]
+  - @freebeatfit/shared@1.10.4-next.1
+  - @freebeatfit/runtime-client-gql@1.10.4-next.1
+  - @freebeatfit/react-core@1.10.4-next.1
+
+## 1.10.4-next.0
+
+### Patch Changes
+
+- Updated dependencies [052d54d]
+  - @freebeatfit/react-core@1.10.4-next.0
+  - @freebeatfit/runtime-client-gql@1.10.4-next.0
+  - @freebeatfit/shared@1.10.4-next.0
+
+## 1.10.3
+
+### Patch Changes
+
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3
+  - @freebeatfit/runtime-client-gql@1.10.3
+  - @freebeatfit/react-core@1.10.3
+
+## 1.10.3-next.3
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.3-next.3
+- @freebeatfit/react-core@1.10.3-next.3
+- @freebeatfit/shared@1.10.3-next.3
+
+## 1.10.3-next.2
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.3-next.2
+- @freebeatfit/react-core@1.10.3-next.2
+- @freebeatfit/shared@1.10.3-next.2
+
+## 1.10.3-next.1
+
+### Patch Changes
+
+- @freebeatfit/react-core@1.10.3-next.1
+- @freebeatfit/runtime-client-gql@1.10.3-next.1
+- @freebeatfit/shared@1.10.3-next.1
+
+## 1.10.3-next.0
+
+### Patch Changes
+
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3-next.0
+  - @freebeatfit/runtime-client-gql@1.10.3-next.0
+  - @freebeatfit/react-core@1.10.3-next.0
+
 ## 1.10.2
 
 ### Patch Changes

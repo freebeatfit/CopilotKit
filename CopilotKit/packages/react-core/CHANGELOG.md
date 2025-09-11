@@ -1,5 +1,85 @@
 # ui
 
+## 1.10.4
+
+### Patch Changes
+
+- ef98963: - feat: add platform-wide error surfacing for custom error rendering
+  - feat: add error as a message option and a component level onError
+- 052d54d: - fix: enable erasing chat state on new thread creation
+- Updated dependencies [a640d8e]
+  - @freebeatfit/shared@1.10.4
+  - @freebeatfit/runtime-client-gql@1.10.4
+
+## 1.10.4-next.3
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.4-next.3
+- @freebeatfit/shared@1.10.4-next.3
+
+## 1.10.4-next.2
+
+### Patch Changes
+
+- ef98963: - feat: add platform-wide error surfacing for custom error rendering
+  - feat: add error as a message option and a component level onError
+  - @freebeatfit/runtime-client-gql@1.10.4-next.2
+  - @freebeatfit/shared@1.10.4-next.2
+
+## 1.10.4-next.1
+
+### Patch Changes
+
+- Updated dependencies [a640d8e]
+  - @freebeatfit/shared@1.10.4-next.1
+  - @freebeatfit/runtime-client-gql@1.10.4-next.1
+
+## 1.10.4-next.0
+
+### Patch Changes
+
+- 052d54d: - fix: enable erasing chat state on new thread creation
+  - @freebeatfit/runtime-client-gql@1.10.4-next.0
+  - @freebeatfit/shared@1.10.4-next.0
+
+## 1.10.3
+
+### Patch Changes
+
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3
+  - @freebeatfit/runtime-client-gql@1.10.3
+
+## 1.10.3-next.3
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.3-next.3
+- @freebeatfit/shared@1.10.3-next.3
+
+## 1.10.3-next.2
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.3-next.2
+- @freebeatfit/shared@1.10.3-next.2
+
+## 1.10.3-next.1
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.3-next.1
+- @freebeatfit/shared@1.10.3-next.1
+
+## 1.10.3-next.0
+
+### Patch Changes
+
+- Updated dependencies [ea74047]
+  - @freebeatfit/shared@1.10.3-next.0
+  - @freebeatfit/runtime-client-gql@1.10.3-next.0
+
 ## 1.10.2
 
 ### Patch Changes
