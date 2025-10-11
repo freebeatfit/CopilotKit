@@ -17,7 +17,7 @@ Customize the LangGraph configuration for use in CopilotKit.
 To the CopilotKit SDK, run:
  
 ```bash
-npm install @copilotkit/sdk-js
+npm install @freebeatfit/sdk-js
 ```
  
 ### Examples
@@ -25,7 +25,7 @@ npm install @copilotkit/sdk-js
 Disable emitting messages and tool calls:
  
 ```typescript
-import { copilotkitCustomizeConfig } from "@copilotkit/sdk-js";
+import { copilotkitCustomizeConfig } from "@freebeatfit/sdk-js";
  
 config = copilotkitCustomizeConfig(
   config,
@@ -39,7 +39,7 @@ the tool name and optionally the tool argument. (If you don't pass the argument 
 all arguments are emitted under the state key.)
  
 ```typescript
-import { copilotkitCustomizeConfig } from "@copilotkit/sdk-js";
+import { copilotkitCustomizeConfig } from "@freebeatfit/sdk-js";
  
 config = copilotkitCustomizeConfig(
   config,
@@ -80,7 +80,7 @@ the run completes.
 ### Examples
  
 ```typescript
-import { copilotkitExit } from "@copilotkit/sdk-js";
+import { copilotkitExit } from "@freebeatfit/sdk-js";
  
 async function myNode(state: Any):
   await copilotkitExit(config)
@@ -101,7 +101,7 @@ update the user with the current state of the node.
 ### Examples
  
 ```typescript
-import { copilotkitEmitState } from "@copilotkit/sdk-js";
+import { copilotkitEmitState } from "@freebeatfit/sdk-js";
  
 for (let i = 0; i < 10; i++) {
   await someLongRunningOperation(i);
@@ -127,7 +127,7 @@ Important: You still need to return the messages from the node.
 ### Examples
  
 ```typescript
-import { copilotkitEmitMessage } from "@copilotkit/sdk-js";
+import { copilotkitEmitMessage } from "@freebeatfit/sdk-js";
  
 const message = "Step 1 of 10 complete";
 await copilotkitEmitMessage(config, message);
@@ -155,7 +155,7 @@ Manually emits a tool call to CopilotKit.
 ### Examples
  
 ```typescript
-import { copilotkitEmitToolCall } from "@copilotkit/sdk-js";
+import { copilotkitEmitToolCall } from "@freebeatfit/sdk-js";
  
 await copilotkitEmitToolCall(config, name="SearchTool", args={"steps": 10})
 ```
