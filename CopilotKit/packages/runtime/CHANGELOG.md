@@ -1,5 +1,93 @@
 # @freebeatfit/runtime
 
+## 1.10.5
+
+### Patch Changes
+
+- b7bc3a0: - feat: pass copilot readable context to agui agents
+- f199c94: - feat: update agui packages
+- 7467f97: - feat: add stop generation callback and call abort agui agent
+- e730369: - feat: use latest agui langgraph package
+  - feat: use latest agui fastapi langgraph package and dependencies
+- c9e32b0: - fix: upgrade agui langgraph version
+- 23fe6a1: - chore: publish python sdk using latest agui
+  - feat: use latest agui packages
+  - @freebeatfit/shared@1.10.5
+
+## 1.10.5-next.10
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.10
+
+## 1.10.5-next.9
+
+### Patch Changes
+
+- f199c94: - feat: update agui packages
+  - @freebeatfit/shared@1.10.5-next.9
+
+## 1.10.5-next.8
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.8
+
+## 1.10.5-next.7
+
+### Patch Changes
+
+- c9e32b0: - fix: upgrade agui langgraph version
+  - @freebeatfit/shared@1.10.5-next.7
+
+## 1.10.5-next.6
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.6
+
+## 1.10.5-next.5
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.5
+
+## 1.10.5-next.4
+
+### Patch Changes
+
+- e730369: - feat: use latest agui langgraph package
+  - feat: use latest agui fastapi langgraph package and dependencies
+  - @freebeatfit/shared@1.10.5-next.4
+
+## 1.10.5-next.3
+
+### Patch Changes
+
+- 23fe6a1: - chore: publish python sdk using latest agui
+  - feat: use latest agui packages
+  - @freebeatfit/shared@1.10.5-next.3
+
+## 1.10.5-next.2
+
+### Patch Changes
+
+- 7467f97: - feat: add stop generation callback and call abort agui agent
+  - @freebeatfit/shared@1.10.5-next.2
+
+## 1.10.5-next.1
+
+### Patch Changes
+
+- b7bc3a0: - feat: pass copilot readable context to agui agents
+  - @freebeatfit/shared@1.10.5-next.1
+
+## 1.10.5-next.0
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.0
+
 ## 1.10.4
 
 ### Patch Changes

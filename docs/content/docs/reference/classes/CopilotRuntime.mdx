@@ -17,7 +17,7 @@ description: "Copilot Runtime is the back-end component of CopilotKit, enabling 
 ## Usage
  
 ```tsx
-import { CopilotRuntime } from "@freebeatfit/runtime";
+import { CopilotRuntime } from "@copilotkit/runtime";
  
 const copilotKit = new CopilotRuntime();
 ```
@@ -115,7 +115,7 @@ Configuration for connecting to Model Context Protocol (MCP) servers.
 <PropertyReference name="createMCPClient" type="CreateMCPClientFunction"  > 
 A function that creates an MCP client instance for a given endpoint configuration.
   This function is responsible for using the appropriate MCP client library
-  (e.g., `@freebeatfit/runtime`, `ai`) to establish a connection.
+  (e.g., `@copilotkit/runtime`, `ai`) to establish a connection.
   Required if `mcpServers` is provided.
  
   ```typescript
@@ -154,6 +154,10 @@ Optional error handler for comprehensive debugging and observability.
     }
   });
   ```
+</PropertyReference>
+
+<PropertyReference name="onStopGeneration" type="OnStopGenerationHandler"  > 
+
 </PropertyReference>
 
 <PropertyReference name="processRuntimeRequest" type="request: CopilotRuntimeRequest">

@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "4.10.4",
+  "version": "4.10.5",
   "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -60,7 +60,7 @@
     "zod-to-json-schema": "^3.23.5"
   },
   "dependencies": {
-    "@freebeatfit/shared": "4.10.4"
+    "@freebeatfit/shared": "4.10.5"
   },
   "peerDependencies": {
     "@langchain/community": "^0.0.53",

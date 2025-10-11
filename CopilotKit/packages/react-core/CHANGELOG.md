@@ -1,5 +1,98 @@
 # ui
 
+## 1.10.5
+
+### Patch Changes
+
+- b7bc3a0: - feat: pass copilot readable context to agui agents
+- f3fdd7a: - fix: stop chat from contacting agent that has errored
+- 32c163e: - inspector visibility toggle in ConsoleTrigger component
+- 6112a67: - fix: consider edge cases when regenerate button is used
+  - @freebeatfit/runtime-client-gql@1.10.5
+  - @freebeatfit/shared@1.10.5
+
+## 1.10.5-next.10
+
+### Patch Changes
+
+- b79ed5c: - fix: prevent double action calls on none render copilot actions
+  - @freebeatfit/runtime-client-gql@1.10.5-next.10
+  - @freebeatfit/shared@1.10.5-next.10
+
+## 1.10.5-next.9
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.9
+- @freebeatfit/shared@1.10.5-next.9
+
+## 1.10.5-next.8
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.8
+- @freebeatfit/shared@1.10.5-next.8
+
+## 1.10.5-next.7
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.7
+- @freebeatfit/shared@1.10.5-next.7
+
+## 1.10.5-next.6
+
+### Patch Changes
+
+- f3fdd7a: - fix: stop chat from contacting agent that has errored
+  - @freebeatfit/runtime-client-gql@1.10.5-next.6
+  - @freebeatfit/shared@1.10.5-next.6
+
+## 1.10.5-next.5
+
+### Patch Changes
+
+- 6112a67: - fix: consider edge cases when regenerate button is used
+  - @freebeatfit/runtime-client-gql@1.10.5-next.5
+  - @freebeatfit/shared@1.10.5-next.5
+
+## 1.10.5-next.4
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.4
+- @freebeatfit/shared@1.10.5-next.4
+
+## 1.10.5-next.3
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.3
+- @freebeatfit/shared@1.10.5-next.3
+
+## 1.10.5-next.2
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.2
+- @freebeatfit/shared@1.10.5-next.2
+
+## 1.10.5-next.1
+
+### Patch Changes
+
+- b7bc3a0: - feat: pass copilot readable context to agui agents
+  - @freebeatfit/runtime-client-gql@1.10.5-next.1
+  - @freebeatfit/shared@1.10.5-next.1
+
+## 1.10.5-next.0
+
+### Patch Changes
+
+- 32c163e: - inspector visibility toggle in ConsoleTrigger component
+  - @freebeatfit/runtime-client-gql@1.10.5-next.0
+  - @freebeatfit/shared@1.10.5-next.0
+
 ## 1.10.4
 
 ### Patch Changes

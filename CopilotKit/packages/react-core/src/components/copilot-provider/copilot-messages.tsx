@@ -236,14 +236,15 @@ export function CopilotMessages({ children }: { children: ReactNode }) {
         graphQLErrors.forEach(routeError);
       } else {
         const isDev = shouldShowDevConsole(showDevConsole);
+        // Route non-GraphQL errors to banner as well
+        const fallbackError = new CopilotKitError({
+          message: error?.message || String(error),
+          code: CopilotKitErrorCode.UNKNOWN,
+        });
         if (!isDev) {
           console.error("CopilotKit Error (hidden in production):", error);
+          traceUIError(fallbackError, error);
         } else {
-          // Route non-GraphQL errors to banner as well
-          const fallbackError = new CopilotKitError({
-            message: error?.message || String(error),
-            code: CopilotKitErrorCode.UNKNOWN,
-          });
           setBannerError(fallbackError);
           // Trace the non-GraphQL error
           traceUIError(fallbackError, error);

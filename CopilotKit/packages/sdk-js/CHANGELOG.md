@@ -1,5 +1,77 @@
 # @freebeatfit/sdk-js
 
+## 1.10.5
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5
+
+## 1.10.5-next.10
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.10
+
+## 1.10.5-next.9
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.9
+
+## 1.10.5-next.8
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.8
+
+## 1.10.5-next.7
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.7
+
+## 1.10.5-next.6
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.6
+
+## 1.10.5-next.5
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.5
+
+## 1.10.5-next.4
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.4
+
+## 1.10.5-next.3
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.3
+
+## 1.10.5-next.2
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.2
+
+## 1.10.5-next.1
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.1
+
+## 1.10.5-next.0
+
+### Patch Changes
+
+- @freebeatfit/shared@1.10.5-next.0
+
 ## 1.10.4
 
 ### Patch Changes

@@ -1,5 +1,112 @@
 # ui
 
+## 1.10.5
+
+### Patch Changes
+
+- c2de25d: - fix: refrain from using prismjs for syntax highlighting on older browsers
+- Updated dependencies [b7bc3a0]
+- Updated dependencies [f3fdd7a]
+- Updated dependencies [32c163e]
+- Updated dependencies [6112a67]
+  - @freebeatfit/react-core@1.10.5
+  - @freebeatfit/runtime-client-gql@1.10.5
+  - @freebeatfit/shared@1.10.5
+
+## 1.10.5-next.10
+
+### Patch Changes
+
+- Updated dependencies [b79ed5c]
+  - @freebeatfit/react-core@1.10.5-next.10
+  - @freebeatfit/runtime-client-gql@1.10.5-next.10
+  - @freebeatfit/shared@1.10.5-next.10
+
+## 1.10.5-next.9
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.9
+- @freebeatfit/react-core@1.10.5-next.9
+- @freebeatfit/shared@1.10.5-next.9
+
+## 1.10.5-next.8
+
+### Patch Changes
+
+- c2de25d: - fix: refrain from using prismjs for syntax highlighting on older browsers
+  - @freebeatfit/react-core@1.10.5-next.8
+  - @freebeatfit/runtime-client-gql@1.10.5-next.8
+  - @freebeatfit/shared@1.10.5-next.8
+
+## 1.10.5-next.7
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.7
+- @freebeatfit/react-core@1.10.5-next.7
+- @freebeatfit/shared@1.10.5-next.7
+
+## 1.10.5-next.6
+
+### Patch Changes
+
+- Updated dependencies [f3fdd7a]
+  - @freebeatfit/react-core@1.10.5-next.6
+  - @freebeatfit/runtime-client-gql@1.10.5-next.6
+  - @freebeatfit/shared@1.10.5-next.6
+
+## 1.10.5-next.5
+
+### Patch Changes
+
+- Updated dependencies [6112a67]
+  - @freebeatfit/react-core@1.10.5-next.5
+  - @freebeatfit/runtime-client-gql@1.10.5-next.5
+  - @freebeatfit/shared@1.10.5-next.5
+
+## 1.10.5-next.4
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.4
+- @freebeatfit/react-core@1.10.5-next.4
+- @freebeatfit/shared@1.10.5-next.4
+
+## 1.10.5-next.3
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.3
+- @freebeatfit/react-core@1.10.5-next.3
+- @freebeatfit/shared@1.10.5-next.3
+
+## 1.10.5-next.2
+
+### Patch Changes
+
+- @freebeatfit/runtime-client-gql@1.10.5-next.2
+- @freebeatfit/react-core@1.10.5-next.2
+- @freebeatfit/shared@1.10.5-next.2
+
+## 1.10.5-next.1
+
+### Patch Changes
+
+- Updated dependencies [b7bc3a0]
+  - @freebeatfit/react-core@1.10.5-next.1
+  - @freebeatfit/runtime-client-gql@1.10.5-next.1
+  - @freebeatfit/shared@1.10.5-next.1
+
+## 1.10.5-next.0
+
+### Patch Changes
+
+- Updated dependencies [32c163e]
+  - @freebeatfit/react-core@1.10.5-next.0
+  - @freebeatfit/runtime-client-gql@1.10.5-next.0
+  - @freebeatfit/shared@1.10.5-next.0
+
 ## 1.10.4
 
 ### Patch Changes
